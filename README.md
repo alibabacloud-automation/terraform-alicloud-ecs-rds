@@ -11,10 +11,6 @@ These types of resources are supported:
 
 * [alicloud_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/instance)
 * [alicloud_db_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/db_instance)
-* [alicloud_slb_load_balancer](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/slb_load_balancer)
-* [alicloud_eip](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/eip)
-* [alicloud_kvstore_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/kvstore_instance)
-
 
 ## Requirements
 
@@ -33,8 +29,8 @@ These types of resources are supported:
 
 ```hcl
 module "ecs-rds" {
-  profile          = "Your-Profile-Name"
-  region           = "cn-shenzhen"
+  profile           = "Your-Profile-Name"
+  region            = "cn-shenzhen"
   source            = "terraform-alicloud-modules/ecs-rds"
   name              = "tf-ecs-rds"
   instance_type     = "ecs.n4.large"
@@ -49,7 +45,8 @@ module "ecs-rds" {
 
 ## Submit Issues
 
-If you have any problems when using this module, please opening a [provider issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new) and let us know.
+If you have any problems when using this module, please opening
+a [provider issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new) and let us know.
 
 **Note:** There does not recommend to open an issue on this repo.
 
