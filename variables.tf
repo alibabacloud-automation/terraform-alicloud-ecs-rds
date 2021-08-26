@@ -1,3 +1,33 @@
+#################
+# Provider
+#################
+variable "profile" {
+  description = "The profile name as set in the shared credentials file. If not set, it will be sourced from the ALICLOUD_PROFILE environment variable."
+  type        = string
+  default     = ""
+}
+
+variable "shared_credentials_file" {
+  description = "This is the path to the shared credentials file. If this is not set and a profile is specified, $HOME/.aliyun/config.json will be used."
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "The region used to launch this module resources."
+  type        = string
+  default     = ""
+}
+
+variable "skip_region_validation" {
+  description = "Skip static validation of region ID. Used by users of alternative AlibabaCloud-like APIs or users w/ access to regions that are not public (yet)."
+  type        = bool
+  default     = false
+}
+
+#################
+# Modules
+#################
 variable "name" {
   description = "The specification of module name."
   type        = string
@@ -116,4 +146,22 @@ variable "monitoring_period" {
   description = "The specification of the monitoring period."
   type        = string
   default     = "60"
+}
+
+variable "availability_zone" {
+  description = "The available zone to launch modules."
+  type        = string
+  default     = ""
+}
+
+variable "vswitch_id" {
+  description = "VSwitch variables, if vswitch_id is empty, then the net_type = classic."
+  type        = string
+  default     = ""
+}
+
+variable "security_group_ids" {
+  description = "A list of security group ids to associate with."
+  type        = list(string)
+  default     = []
 }

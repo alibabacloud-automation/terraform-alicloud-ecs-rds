@@ -1,40 +1,25 @@
 terraform {
   required_providers {
     alicloud = {
-      source  = "aliyun/alicloud"
+      source  = "hashicorp/alicloud"
       version = "1.126.0"
     }
   }
 }
 
-data "alicloud_zones" "default" {
-  available_disk_category     = var.available_disk_category
-  available_resource_creation = var.available_resource_creation
-}
-
-resource "alicloud_vpc" "default" {
-  vpc_name   = var.name
-  cidr_block = var.vpc_cidr_block
-}
-
-resource "alicloud_vswitch" "default" {
-  vswitch_name = var.name
-  vpc_id       = alicloud_vpc.default.id
-  zone_id      = data.alicloud_zones.default.zones[0].id
-  cidr_block   = var.vswitch_cidr_block
-}
-
-resource "alicloud_security_group" "default" {
-  name        = var.name
-  description = var.description
-  vpc_id      = alicloud_vpc.default.id
+provider "alicloud" {
+  profile                 = var.profile != "" ? var.profile : null
+  shared_credentials_file = var.shared_credentials_file != "" ? var.shared_credentials_file : null
+  region                  = var.region != "" ? var.region : null
+  skip_region_validation  = var.skip_region_validation
+  configuration_source    = "terraform-alicloud-modules/ecs-rds"
 }
 
 resource "alicloud_instance" "default" {
   instance_name              = var.name
-  availability_zone          = data.alicloud_zones.default.zones[0].id
-  security_groups            = alicloud_security_group.default.*.id
-  vswitch_id                 = alicloud_vswitch.default.id
+  availability_zone          = var.availability_zone
+  security_groups            = var.security_group_ids
+  vswitch_id                 = var.vswitch_id
   instance_type              = var.instance_type
   system_disk_category       = var.system_disk_category
   system_disk_name           = var.system_disk_name
@@ -52,7 +37,7 @@ resource "alicloud_instance" "default" {
 
 resource "alicloud_db_instance" "default" {
   instance_name        = var.name
-  vswitch_id           = alicloud_vswitch.default.id
+  vswitch_id           = var.vswitch_id
   engine               = var.engine
   engine_version       = var.engine_version
   instance_type        = var.rds_instance_type

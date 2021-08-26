@@ -1,6 +1,8 @@
 package test
 
 import (
+	"fmt"
+	"github.com/gruntwork-io/terratest/modules/random"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -13,26 +15,8 @@ import (
 
 func TestTerraformBasicExampleNew(t *testing.T) {
 	t.Parallel()
-	name := "tf-ecs-rds"
-	description := "tf-ecs-rds-description"
-	availableDiskCategory := "cloud_efficiency"
-	availableResourceCreation := "VSwitch"
-	vpcCidrBlock := "192.168.0.0/16"
-	vswitchCidrBlock := "192.168.1.0/24"
-	instanceType := "ecs.n4.large"
-	systemDiskCategory := "cloud_efficiency"
-	systemDiskName := "system_disk"
-	systemDiskDescription := "system_disk_description"
-	imageId := "ubuntu_18_04_64_20G_alibase_20190624.vhd"
-	internetMaxBandwidthOut := 10
-	ecsSize := 1200
-	category := "cloud_efficiency"
-	engine := "MySQL"
-	engineVersion := "5.6"
-	rdsInstanceType := "rds.mysql.s2.large"
-	instanceStorage := "30"
-	instanceChargeType := "Postpaid"
-	monitoringPeriod := "60"
+
+	name := fmt.Sprintf("tf-test-%d.aliyun.com", random.Random(100, 1000))
 
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
@@ -40,27 +24,7 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
-			"name":                        name,
-			"description":                 description,
-			"available_disk_category":     availableDiskCategory,
-			"available_resource_creation": availableResourceCreation,
-			"vpc_cidr_block":              vpcCidrBlock,
-			"vswitch_cidr_block":          vswitchCidrBlock,
-			"instance_type":               instanceType,
-			"system_disk_category":        systemDiskCategory,
-			"system_disk_name":            systemDiskName,
-			"system_disk_description":     systemDiskDescription,
-			"image_id":                    imageId,
-			"internet_max_bandwidth_out":  internetMaxBandwidthOut,
-			"ecs_size":                    ecsSize,
-			"category":                    category,
-			"engine":                      engine,
-			"engine_version":              engineVersion,
-			"rds_instance_type":           rdsInstanceType,
-			"instance_storage":            instanceStorage,
-			"instance_charge_type":        instanceChargeType,
-			"monitoring_period":           monitoringPeriod,
-
+			"name": name,
 			// We also can see how lists and maps translate between terratest and terraform.
 		},
 
@@ -76,13 +40,9 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 
 	// Run `terraform output` to get the values of output variables
 	thisEcsName := terraform.Output(t, terraformOptions, "this_ecs_name")
-	thisEcsInstanceType := terraform.Output(t, terraformOptions, "this_ecs_instance_type")
 	thisRdsName := terraform.Output(t, terraformOptions, "this_rds_name")
-	thisRdsInstanceType := terraform.Output(t, terraformOptions, "this_rds_instance_type")
 
 	// Verify we're getting back the outputs we expect
 	assert.Equal(t, thisEcsName, name)
-	assert.Equal(t, thisEcsInstanceType, instanceType)
 	assert.Equal(t, thisRdsName, name)
-	assert.Equal(t, thisRdsInstanceType, rdsInstanceType)
 }
