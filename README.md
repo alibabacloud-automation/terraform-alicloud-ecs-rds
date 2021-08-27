@@ -1,29 +1,16 @@
-Alicloud ECS&RDS Terraform Module On Alibaba Cloud
+Terraform module which creates lightweight web service with ECS&RDS on Alibaba Cloud
 
 terraform-alicloud-ecs-rds
----
+=====================================================================
 
 English | [简体中文](README-CN.md)
 
-This module is used to create a lightweight web service under Alibaba Cloud ECS, RDS.
+This module is used to create a lightweight web service with ECS and RDS under Alibaba Cloud.
 
 These types of resources are supported:
 
 * [alicloud_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/instance)
 * [alicloud_db_instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/db_instance)
-
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
-| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.131.0 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.131.0 |
 
 ## Usage
 
@@ -31,7 +18,7 @@ These types of resources are supported:
 module "ecs-rds" {
   profile           = "Your-Profile-Name"
   region            = "cn-shenzhen"
-  source            = "terraform-alicloud-modules/ecs-rds"
+  source            = "terraform-alicloud-modules/ecs-rds/alicloud"
   name              = "tf-ecs-rds"
   instance_type     = "ecs.n4.large"
   rds_instance_type = "rds.mysql.s2.large"
