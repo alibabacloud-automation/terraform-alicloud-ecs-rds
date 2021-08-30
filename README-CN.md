@@ -5,7 +5,7 @@ terraform-alicloud-ecs-rds
 
 [English](README.md) | 简体中文
 
-本 Module 用于在阿里云的 VPC 下创建一个轻量级 WEB 服务，包含：ECS、 RDS。
+本 Module 用于在阿里云的 VPC 下创建一个轻量级 WEB 服务，包含：`ECS`、 `RDS`。
 
 本 Module 支持创建以下资源:
 

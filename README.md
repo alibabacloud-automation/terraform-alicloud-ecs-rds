@@ -5,7 +5,7 @@ terraform-alicloud-ecs-rds
 
 English | [简体中文](README-CN.md)
 
-This module is used to create a lightweight web service with ECS and RDS under Alibaba Cloud.
+This module is used to create a lightweight web service with `ECS` and `RDS` under Alibaba Cloud.
 
 These types of resources are supported:
 
