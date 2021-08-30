@@ -38,7 +38,7 @@ resource "alicloud_security_group" "default" {
 }
 
 module "example" {
-  source             = "../.."
+  source             = "../"
   region             = var.region
   name               = var.name
   vswitch_id         = alicloud_vswitch.default.id
