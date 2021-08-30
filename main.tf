@@ -21,7 +21,7 @@ resource "alicloud_instance" "default" {
 resource "alicloud_db_instance" "default" {
   instance_name        = var.name
   vswitch_id           = var.vswitch_id
-  engine               = var.engine
+  engine               = "MySQL"
   engine_version       = var.engine_version
   instance_type        = var.rds_instance_type
   instance_storage     = var.instance_storage

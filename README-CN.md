@@ -16,8 +16,6 @@ terraform-alicloud-ecs-rds
 
 ```hcl
 module "ecs-rds" {
-  profile           = "Your-Profile-Name"
-  region            = "cn-shenzhen"
   source            = "terraform-alicloud-modules/ecs-rds/alicloud"
   name              = "tf-ecs-rds"
   instance_type     = "ecs.n4.large"
