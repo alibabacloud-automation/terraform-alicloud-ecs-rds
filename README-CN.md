@@ -15,7 +15,7 @@ terraform-alicloud-ecs-rds
 ## 用法
 
 ```hcl
-module "ecs-rds" {
+module "example" {
   source            = "terraform-alicloud-modules/ecs-rds/alicloud"
   name              = "tf-ecs-rds"
   instance_type     = "ecs.n4.large"
@@ -33,13 +33,13 @@ module "ecs-rds" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
-| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.56.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.131.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.56.0 |
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.131.0 |
 
 ## 提交问题
 
