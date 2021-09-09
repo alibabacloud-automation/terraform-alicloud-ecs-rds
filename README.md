@@ -46,7 +46,7 @@ module "example" {
 If you have any problems when using this module, please opening
 a [provider issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new) and let us know.
 
-**Note:** There does not recommend to open an issue on this repo.
+**Note:** There does not recommend opening an issue on this repo.
 
 ## Authors
 
