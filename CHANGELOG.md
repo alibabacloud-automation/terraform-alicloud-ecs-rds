@@ -1,4 +1,3 @@
-## 1.1.0 (Unreleased)
 ## 1.0.1 (2025-03-14)
 
 - examples/complete: improve the examples [GH-10](https://github.com/alibabacloud-automation/terraform-alicloud-ecs-rds/pull/10)
