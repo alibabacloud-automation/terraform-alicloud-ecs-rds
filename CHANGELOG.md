@@ -1,3 +1,5 @@
+## [1.0.3](https://github.com/alibabacloud-automation/terraform-alicloud-ecs-rds/compare/v1.0.2...v1.0.3) (2025-11-27)
+
 ## [1.0.2](https://github.com/alibabacloud-automation/terraform-alicloud-ecs-rds/compare/v1.0.1...v1.0.2) (2025-10-16)
 
 
