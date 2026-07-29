@@ -6,4 +6,4 @@ internet_max_bandwidth_out = "20"
 
 #alicloud_db_instance
 instance_storage  = "50"
-monitoring_period = "5"
+monitoring_period = "60"
